@@ -27,23 +27,27 @@ public class Basics {
 		System.out.println(placeId);
 		
 		// PUT 
+		String newAddress = "Summer Walk, Africa";
 		given().log().all().queryParam("key", "qaclick123")
 		.header("Content-Type", "application/json").body("{\r\n"
 				+"\"place_id\":\""+placeId+"\",\r\n" 
-				+ "\"address\":\"70 Summer walk, USA\",\r\n"
+				+ "\"address\":\""+newAddress+"\",\r\n"
 				+ "\"key\":\"qaclick123\"\r\n"
 				+ "}")
 		.when().put("/maps/api/place/update/json")
 		.then().assertThat().statusCode(200).body("msg", equalTo("Address successfully updated"));
 		
 
-//		// GET 
-//		given().log().all().queryParam("key", "qaclick123").queryParam("place_id", "3afe61be24407e805c2882c5ae17bb95")
-//		.header("Content-Type", "application/json")
-//		.when().get("/maps/api/place/get/json")
-//		.then().log().all().assertThat().statusCode(200);
-//		
-//		
+		// GET 
+		String getPlaceResponse=	given().log().all().queryParam("key", "qaclick123")
+				.queryParam("place_id",placeId)
+				.when().get("maps/api/place/get/json")
+				.then().assertThat().log().all().statusCode(200).extract().response().asString();
+			JsonPath js1=new JsonPath(getPlaceResponse);
+			String actualAddress =js1.getString("address");
+			System.out.println(actualAddress);
+		
+		
 //		// DELETE 
 //		given().log().all().queryParam("key", "qaclick123")
 //		.header("Content-Type", "application/json").body("{\r\n"
@@ -52,8 +56,6 @@ public class Basics {
 //		.when().delete("/maps/api/place/delete/json")
 //		.then().log().all().assertThat().statusCode(200);
 		
-		
-
 			
 	}
 }
