@@ -4,6 +4,9 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+
+import org.testng.Assert;
 
 import files.Payload;
 
@@ -23,17 +26,17 @@ public class Basics {
 		
 		System.out.println(placeId);
 		
-//		// PUT 
-//		given().log().all().queryParam("key", "qaclick123").queryParam("place_id", "b60776a46df67a8b1e64812c2ef5aa18")
-//		.header("Content-Type", "application/json").body("{\r\n"
-//				+ "\"place_id\":\"b60776a46df67a8b1e64812c2ef5aa18\",\r\n"
-//				+ "\"address\":\"70 Summer walk, USA\",\r\n"
-//				+ "\"key\":\"qaclick123\"\r\n"
-//				+ "}")
-//		.when().put("/maps/api/place/update/json")
-//		.then().log().all().assertThat().statusCode(200);
-//		
-//
+		// PUT 
+		given().log().all().queryParam("key", "qaclick123")
+		.header("Content-Type", "application/json").body("{\r\n"
+				+"\"place_id\":\""+placeId+"\",\r\n" 
+				+ "\"address\":\"70 Summer walk, USA\",\r\n"
+				+ "\"key\":\"qaclick123\"\r\n"
+				+ "}")
+		.when().put("/maps/api/place/update/json")
+		.then().assertThat().statusCode(200).body("msg", equalTo("Address successfully updated"));
+		
+
 //		// GET 
 //		given().log().all().queryParam("key", "qaclick123").queryParam("place_id", "3afe61be24407e805c2882c5ae17bb95")
 //		.header("Content-Type", "application/json")
