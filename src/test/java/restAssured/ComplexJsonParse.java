@@ -1,11 +1,13 @@
 package restAssured;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import files.Payload;
 import io.restassured.path.json.JsonPath;
 
 public class ComplexJsonParse {
-	public static void main(String args[]) {
+	@Test
+	public void complexJsonParse () {
 		JsonPath js=new JsonPath(Payload.coursePrice());
 		
 		int count=js.getInt("courses.size()");

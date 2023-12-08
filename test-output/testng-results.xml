@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-12-07T21:52:10 EST" name="Default suite" finished-at="2023-12-07T21:52:12 EST" duration-ms="1779">
+    <groups>
+    </groups>
+    <test started-at="2023-12-07T21:52:10 EST" name="Default test" finished-at="2023-12-07T21:52:12 EST" duration-ms="1779">
+      <class name="restAssured.ComplexJsonParse">
+        <test-method signature="complexJsonParse()[pri:0, instance:restAssured.ComplexJsonParse@1a451d4d]" started-at="2023-12-07T21:52:10 EST" name="complexJsonParse" finished-at="2023-12-07T21:52:12 EST" duration-ms="1719" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- complexJsonParse -->
+      </class> <!-- restAssured.ComplexJsonParse -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
