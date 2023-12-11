@@ -11,17 +11,17 @@ public class ComplexJsonParse {
 		JsonPath js=new JsonPath(Payload.coursePrice());
 		
 		int count=js.getInt("courses.size()");
-		System.out.println("Print No of courses returned by API :"+count);
+//		System.out.println("Print No of courses returned by API :"+count);
 		
 		int amt=js.getInt("dashboard.purchaseAmount");
-		System.out.println("Print Purchase Amount :"+amt);
+//		System.out.println("Print Purchase Amount :"+amt);
 		
 		String title = js.getString("courses[0].title");
 		System.out.println("Print Title of the first course: "+title);
 		
 		System.out.println("Print All course titles and their respective Prices: "+title);
 		for(int i=0;i<count;i++) {
-			System.out.println("Title of the course"+(i+1)+ " :"+(js.getString("courses["+i+"].title")));
+//			System.out.println("Title of the course"+(i+1)+ " :"+(js.getString("courses["+i+"].title")));
 			System.out.println("Price of the course"+(i+1)+ " :"+(js.getInt("courses["+i+"].price")));
 		}
 		
