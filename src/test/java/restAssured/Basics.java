@@ -1,18 +1,18 @@
 package restAssured;
 
-import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
-
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.Assert;
 
 import files.Payload;
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+
 
 public class Basics {
-
-	public static void main(String[] args) {
+	
+	public static void rest_Assured() {
 		RestAssured.baseURI="https://rahulshettyacademy.com";
 		// POST 
 		String response=given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
@@ -57,7 +57,21 @@ public class Basics {
 //				+ "}")
 //		.when().delete("/maps/api/place/delete/json")
 //		.then().log().all().assertThat().statusCode(200);
+	}
+
+	public static void string_manipulation() {
 		
+		String str="payment $100";
+		System.out.println(str.charAt(8));
+		System.out.println(str.indexOf("$"));
+		System.out.println(str.substring(8));
+		
+	}
+	
+	public static void main(String[] args) {
+		
+//		rest_Assured();
+		string_manipulation();
 			
 	}
 }
