@@ -65,8 +65,24 @@ public class Basics {
 		System.out.println(str.charAt(8));
 		System.out.println(str.indexOf("$"));
 		System.out.println(str.substring(8));
-		
+		String rev="";
+		for(int i=str.length()-1;i>=0;i--) {
+//			System.out.print(str.charAt(i));
+			rev+=str.charAt(i);
+		}
+		System.out.println(rev);
+		String str1="madam";
+		boolean palindrome=true;
+		for(int i=0;i<(str1.length()-1)/2;i++) {
+			if((rev.charAt(i))!=(str1.charAt(i))) {
+				palindrome=false;
+				break;
+			}
+		}
+		System.out.println(palindrome);
 	}
+	
+	public static void string_manipulation() {
 	
 	public static void main(String[] args) {
 		
