@@ -25,30 +25,30 @@ public class Basics {
 		String placeId=js.getString("place_id");
 		
 		System.out.println(placeId);
-		
-		// PUT 
-		String newAddress = "Summer Walk, Africa";
-		given().log().all().queryParam("key", "qaclick123")
-		.header("Content-Type", "application/json").body("{\r\n"
-				+"\"place_id\":\""+placeId+"\",\r\n" 
-				+ "\"address\":\""+newAddress+"\",\r\n"
-				+ "\"key\":\"qaclick123\"\r\n"
-				+ "}")
-		.when().put("/maps/api/place/update/json")
-		.then().assertThat().statusCode(200).body("msg", equalTo("Address successfully updated"));
-		
-
-		// GET 
-		String getPlaceResponse = given().log().all().queryParam("key", "qaclick123")
-				.queryParam("place_id",placeId)
-				.when().get("maps/api/place/get/json")
-				.then().assertThat().log().all().statusCode(200).extract().response().asString();
-		
-			JsonPath js1=new JsonPath(getPlaceResponse);
-			String actualAddress =js1.getString("address");
-			System.out.println(actualAddress);
-			Assert.assertEquals(actualAddress, newAddress);
-		
+//		
+//		// PUT 
+//		String newAddress = "Summer Walk, Africa";
+//		given().log().all().queryParam("key", "qaclick123")
+//		.header("Content-Type", "application/json").body("{\r\n"
+//				+"\"place_id\":\""+placeId+"\",\r\n" 
+//				+ "\"address\":\""+newAddress+"\",\r\n"
+//				+ "\"key\":\"qaclick123\"\r\n"
+//				+ "}")
+//		.when().put("/maps/api/place/update/json")
+//		.then().assertThat().statusCode(200).body("msg", equalTo("Address successfully updated"));
+//		
+//
+//		// GET 
+//		String getPlaceResponse = given().log().all().queryParam("key", "qaclick123")
+//				.queryParam("place_id",placeId)
+//				.when().get("maps/api/place/get/json")
+//				.then().assertThat().log().all().statusCode(200).extract().response().asString();
+//		
+//			JsonPath js1=new JsonPath(getPlaceResponse);
+//			String actualAddress =js1.getString("address");
+//			System.out.println(actualAddress);
+//			Assert.assertEquals(actualAddress, newAddress);
+//		
 		
 //		// DELETE 
 //		given().log().all().queryParam("key", "qaclick123")
@@ -59,35 +59,34 @@ public class Basics {
 //		.then().log().all().assertThat().statusCode(200);
 	}
 
-	public static void string_manipulation() {
-		
-		String str="payment $100";
-		System.out.println(str.charAt(8));
-		System.out.println(str.indexOf("$"));
-		System.out.println(str.substring(8));
-		String rev="";
-		for(int i=str.length()-1;i>=0;i--) {
-//			System.out.print(str.charAt(i));
-			rev+=str.charAt(i);
-		}
-		System.out.println(rev);
-		String str1="madam";
-		boolean palindrome=true;
-		for(int i=0;i<(str1.length()-1)/2;i++) {
-			if((rev.charAt(i))!=(str1.charAt(i))) {
-				palindrome=false;
-				break;
-			}
-		}
-		System.out.println(palindrome);
-	}
-	
-	public static void string_manipulation() {
+//	public static void string_manipulation() {
+//		
+//		String str="payment $100";
+//		System.out.println(str.charAt(8));
+//		System.out.println(str.indexOf("$"));
+//		System.out.println(str.substring(8));
+//		String rev="";
+//		for(int i=str.length()-1;i>=0;i--) {
+////			System.out.print(str.charAt(i));
+//			rev+=str.charAt(i);
+//		}
+//		System.out.println(rev);
+//		String str1="madam";
+//		boolean palindrome=true;
+//		for(int i=0;i<(str1.length()-1)/2;i++) {
+//			if((rev.charAt(i))!=(str1.charAt(i))) {
+//				palindrome=false;
+//				break;
+//			}
+//		}
+//		System.out.println(palindrome);
+//	}
+//	
 	
 	public static void main(String[] args) {
 		
-//		rest_Assured();
-		string_manipulation();
+		rest_Assured();
+//		string_manipulation();
 			
 	}
 }
